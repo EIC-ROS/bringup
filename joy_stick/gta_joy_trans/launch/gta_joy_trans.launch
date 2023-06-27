@@ -1,0 +1,14 @@
+<launch>
+
+<node pkg="joy" type="joy_node" name="joy_inteface"/>
+
+<node pkg="gta_joy_trans" type="gta_joy_trans.py" name="gta_jot_trans"/>
+<!-- run "rostopic /cmd_vel" -->
+
+<!-- Odrive Inteface -->
+<!-- <node pkg="robot_localization" type="ekf_localization_node" name="ekf_node_name" >
+    <rosparam command="load" file="$(find odrive_can_interface)/param/ekf.yaml" />
+</node> -->
+
+
+</launch>

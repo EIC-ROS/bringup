@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://wiki.ros.org/xacro" name="cr3_robot">
+
+<xacro:include filename="$(find walkie3_description)/urdf/walkie3.xacro"/>
+<xacro:include filename="$(find dobot_description)/urdf/cr3_robot.urdf"/>
+
+<link name="virtual_lidar"/>
+
+<joint name="virtual_lidar_joint" type="fixed">
+    <origin xyz="0 0 0.1775" rpy="0 0 0"/>
+    <parent link="base_link" />
+    <child  link="virtual_lidar" />
+</joint>
+
+<joint name="cr3_to_base" type="fixed">
+    <origin xyz="-0.06 0 0.006" rpy="0 0 0"/>
+    <parent link="lift" />
+    <child  link="dummy_link" />
+</joint>
+
+
+<!-- <joint name="zed2i_joint" type="fixed">
+    <origin xyz="0.031804 0.09 -0.015" rpy="0 0 0"/>
+    <parent link="camera_servo" />
+    <child  link="zed2i_base_link" />
+</joint> -->
+    
+<xacro:arg name="camera_name"   default="zed2i" />
+<xacro:arg name="camera_model"  default="zed2i" />
+<xacro:arg name="base_frame"    default="camera_servo" />
+<xacro:arg name="cam_pos_x"     default="0.0" />
+<xacro:arg name="cam_pos_y"     default="0.0" />
+<xacro:arg name="cam_pos_z"     default="0.0" />
+<xacro:arg name="cam_roll"      default="0.0" />
+<xacro:arg name="cam_pitch"     default="0.0" />
+<xacro:arg name="cam_yaw"       default="0.0" />
+<xacro:arg name="gnss_frame"    default="" />
+
+<xacro:include filename="$(find zed_wrapper)/urdf/zed_macro.urdf.xacro" />
+<xacro:zed_camera name="$(arg camera_name)" model="$(arg camera_model)" parent="$(arg base_frame)">
+    <origin 
+      xyz="$(arg cam_pos_x) $(arg cam_pos_y) $(arg cam_pos_z)" 
+      rpy="$(arg cam_roll) $(arg cam_pitch) $(arg cam_yaw)"
+    />
+</xacro:zed_camera>
+
+<link name="$(arg camera_name)_imu_link" />  
+
+  <joint name="$(arg camera_name)_imu_link_joint" type="fixed">
+      <parent link="base_link"/>
+      <child link="$(arg camera_name)_imu_link"/>
+      <origin xyz="-0.102 0.037 1.389" rpy="0.005 -0.006 -0.006" />
+  </joint> 
+
+</robot>

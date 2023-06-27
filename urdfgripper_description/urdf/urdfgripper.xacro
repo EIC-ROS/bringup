@@ -1,0 +1,216 @@
+<?xml version="1.0" ?>
+<robot name="urdfgripper" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:include filename="$(find urdfgripper_description)/urdf/materials.xacro" />
+<xacro:include filename="$(find urdfgripper_description)/urdf/urdfgripper.trans" />
+<xacro:include filename="$(find urdfgripper_description)/urdf/urdfgripper.gazebo" />
+<link name="base_link">
+  <inertial>
+    <origin xyz="1.9099884677715165e-13 -8.588463814791657e-18 0.050480059207214864" rpy="0 0 0"/>
+    <mass value="4.156467071923433"/>
+    <inertia ixx="0.005332" iyy="0.005469" izz="0.003505" ixy="-0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://urdfgripper_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://urdfgripper_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="clamp2_1">
+  <inertial>
+    <origin xyz="-0.0007710681342016981 0.01324999999999889 0.032208454343210485" rpy="0 0 0"/>
+    <mass value="0.3695576413156298"/>
+    <inertia ixx="0.000228" iyy="0.000227" izz="4.2e-05" ixy="0.0" iyz="0.0" ixz="2.1e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.036 0.01325 -0.1238" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://urdfgripper_description/meshes/clamp2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.036 0.01325 -0.1238" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://urdfgripper_description/meshes/clamp2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="joint_gripper2_1">
+  <inertial>
+    <origin xyz="0.0014117786083714633 0.007249999999999621 -0.006855934747932696" rpy="0 0 0"/>
+    <mass value="0.01686070551364095"/>
+    <inertia ixx="1e-06" iyy="1e-06" izz="0.0" ixy="-0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.0175 0.0 -0.105" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://urdfgripper_description/meshes/joint_gripper2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.0175 0.0 -0.105" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://urdfgripper_description/meshes/joint_gripper2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="clamp1_1">
+  <inertial>
+    <origin xyz="0.0007710678210290922 0.013249999999998886 0.03220845433786543" rpy="0 0 0"/>
+    <mass value="0.36955764131562985"/>
+    <inertia ixx="0.000228" iyy="0.000227" izz="4.2e-05" ixy="-0.0" iyz="0.0" ixz="-2.1e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.036 0.01325 -0.1238" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://urdfgripper_description/meshes/clamp1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.036 0.01325 -0.1238" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://urdfgripper_description/meshes/clamp1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<!-- <link name="joint_gripper1_1">
+  <inertial>
+    <origin xyz="-0.0014117788637248198 0.007249999999999619 -0.006855934695334132" rpy="0 0 0"/>
+    <mass value="0.01686070551364095"/>
+    <inertia ixx="1e-06" iyy="1e-06" izz="0.0" ixy="0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.020824 0.00725 -0.127512" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://urdfgripper_description/meshes/joint_gripper1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.020824 0.00725 -0.127512" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://urdfgripper_description/meshes/joint_gripper1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link> -->
+
+<link name="joint_gripper3_1">
+  <inertial>
+    <origin xyz="2.4639675104551738e-14 -2.3953259916310663e-16 -0.01399999999999997" rpy="0 0 0"/>
+    <mass value="0.03492902737584383"/>
+    <inertia ixx="1e-06" iyy="5e-06" izz="5e-06" ixy="-0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.0 -0.0 -0.1278" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://urdfgripper_description/meshes/joint_gripper3_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.0 -0.0 -0.1278" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://urdfgripper_description/meshes/joint_gripper3_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<!-- <link name="joint_gripper1_2">
+  <inertial>
+    <origin xyz="0.0014122211362751803 0.007249999999999619 0.0068560653046658565" rpy="0 0 0"/>
+    <mass value="0.01686070551364095"/>
+    <inertia ixx="1e-06" iyy="1e-06" izz="0.0" ixy="0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.018 0.00725 -0.1138" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://urdfgripper_description/meshes/joint_gripper1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.018 0.00725 -0.1138" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://urdfgripper_description/meshes/joint_gripper1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link> -->
+
+<link name="joint_gripper2_2">
+  <inertial>
+    <origin xyz="-0.0014122213916285369 0.007249999999999621 0.006856065252067292" rpy="0 0 0"/>
+    <mass value="0.01686070551364095"/>
+    <inertia ixx="1e-06" iyy="1e-06" izz="0.0" ixy="-0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.018 0.00725 -0.105" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://urdfgripper_description/meshes/joint_gripper2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.018 0.00725 -0.105" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://urdfgripper_description/meshes/joint_gripper2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<joint name="Revolute 1" type="continuous">
+  <origin xyz="-0.036 -0.01325 0.1238" rpy="0 -0.84 0"/>
+  <parent link="base_link"/>
+  <child link="clamp2_1"/>
+  <axis xyz="0.0 -1.0 0.0"/>
+  <mimic joint="Slider 5" multiplier="62.0" offset="0.0"/>
+</joint>
+
+
+<joint name="Revolute 2" type="continuous">
+  <origin xyz="-0.018 -0.007 -0.023" rpy="0 -0.07 0"/>
+  <parent link="joint_gripper3_1"/>
+  <child link="joint_gripper2_2"/>
+  <axis xyz="0.0 -1.0 -0.0"/>
+  <mimic joint="Slider 5" multiplier="10.0" offset="0.0"/>
+</joint>
+
+<joint name="Revolute 3" type="continuous">
+  <origin xyz="0.036 -0.01325 0.1238" rpy="0 1.74 0"/>
+  <parent link="base_link"/>
+  <child link="clamp1_1"/>
+  <axis xyz="0.0 -1.0 0.0"/>
+  <mimic joint="Slider 5" multiplier="-62.0" offset="0.0"/>
+</joint>
+
+<joint name="Revolute 4" type="continuous">
+  <origin xyz="0.018 0.000 -0.023" rpy="0 0.58 0"/>
+  <parent link="joint_gripper3_1"/>
+  <child link="joint_gripper2_1"/>
+  <axis xyz="0.0 -1.0 0.0"/>
+  <mimic joint="Slider 5" multiplier="-10.0" offset="0.0"/>
+</joint>
+
+<joint name="Slider 5" type="prismatic">
+  <origin xyz="0.0 0.0 0.1410" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="joint_gripper3_1"/>
+  <axis xyz="0.0 0.0 1.0"/>
+  <limit upper="0.0" lower="-0.011" effort="100" velocity="100"/>
+</joint>
+
+</robot>

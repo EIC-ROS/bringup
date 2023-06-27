@@ -1,0 +1,39 @@
+<launch>   
+    <node name="richbeam_lidar" pkg="lakibeam1" type="lakibeam1_scan_node" output="screen">
+        <remap from="/richbeam_lidar/scan" to="/back/scan" />
+        <param name="frame_id" type="string" value="back_lidar"/>
+        <param name="output_topic" type="string" value="scan" />
+        <param name="inverted" type="bool" value="false"/>
+        <param name="hostip" type="string" value="10.10.10.10"/>
+        <param name="sensorip" type="string" value="10.10.10.9"/>
+        <param name="port" type="string" value="2368"/>
+        <param name="angle_offset" type="int" value="0"/>
+        <param name="scanfreq" type="string" value="30" />
+        <param name="filter" type="string" value="3" />
+        <param name="laser_enable" type="string" value="true" />
+        <param name="scan_range_start" type="string" value="75" />
+        <param name="scan_range_stop" type="string" value="285" />
+    </node>
+
+    <node name="urg_node" pkg="urg_node" type="urg_node">
+        <param name="ip_address" value="10.10.10.21"/>
+        <param name="frame_id" value="front_lidar"/>
+        <param name="angle_max" value="1.833"/>
+        <param name="angle_min" value="-1.833"/>
+        <remap from="/scan" to="/front/scan"/>
+    </node>
+
+    <node pkg="ira_laser_tools" name="laserscan_multi_merger" type="laserscan_multi_merger" output="screen">
+        <param name="destination_frame" value="virtual_lidar"/>
+        <param name="cloud_destination_topic" value="/merged_cloud"/>
+        <param name="scan_destination_topic" value="/scan"/>
+        <param name="laserscan_topics" value ="/front/scan /back/scan" /> 
+        <param name="angle_min" value="-3.14"/>
+        <param name="angle_max" value="3.14"/>
+        <param name="angle_increment" value="0.0058"/>
+        <param name="scan_time" value="0.0333333"/>
+        <param name="range_min" value="0.30"/>
+        <param name="range_max" value="50.0"/>
+    </node> 
+
+</launch>
