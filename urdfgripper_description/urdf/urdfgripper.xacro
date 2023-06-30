@@ -4,7 +4,8 @@
 <xacro:include filename="$(find urdfgripper_description)/urdf/materials.xacro" />
 <xacro:include filename="$(find urdfgripper_description)/urdf/urdfgripper.trans" />
 <xacro:include filename="$(find urdfgripper_description)/urdf/urdfgripper.gazebo" />
-<link name="base_link">
+
+<link name="gripper_base_link">
   <inertial>
     <origin xyz="1.9099884677715165e-13 -8.588463814791657e-18 0.050480059207214864" rpy="0 0 0"/>
     <mass value="4.156467071923433"/>
@@ -15,7 +16,7 @@
     <geometry>
       <mesh filename="package://urdfgripper_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
     </geometry>
-    <material name="silver"/>
+    <material name="cyan"/>
   </visual>
   <collision>
     <origin xyz="0 0 0" rpy="0 0 0"/>
@@ -36,7 +37,7 @@
     <geometry>
       <mesh filename="package://urdfgripper_description/meshes/clamp2_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
-    <material name="silver"/>
+    <material name="cyan"/>
   </visual>
   <collision>
     <origin xyz="0.036 0.01325 -0.1238" rpy="0 0 0"/>
@@ -57,7 +58,7 @@
     <geometry>
       <mesh filename="package://urdfgripper_description/meshes/joint_gripper2_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
-    <material name="silver"/>
+    <material name="cyan"/>
   </visual>
   <collision>
     <origin xyz="0.0175 0.0 -0.105" rpy="0 0 0"/>
@@ -78,7 +79,7 @@
     <geometry>
       <mesh filename="package://urdfgripper_description/meshes/clamp1_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
-    <material name="silver"/>
+    <material name="cyan"/>
   </visual>
   <collision>
     <origin xyz="-0.036 0.01325 -0.1238" rpy="0 0 0"/>
@@ -99,7 +100,7 @@
     <geometry>
       <mesh filename="package://urdfgripper_description/meshes/joint_gripper1_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
-    <material name="silver"/>
+    <material name="cyan"/>
   </visual>
   <collision>
     <origin xyz="-0.020824 0.00725 -0.127512" rpy="0 0 0"/>
@@ -120,7 +121,7 @@
     <geometry>
       <mesh filename="package://urdfgripper_description/meshes/joint_gripper3_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
-    <material name="silver"/>
+    <material name="cyan"/>
   </visual>
   <collision>
     <origin xyz="-0.0 -0.0 -0.1278" rpy="0 0 0"/>
@@ -141,7 +142,7 @@
     <geometry>
       <mesh filename="package://urdfgripper_description/meshes/joint_gripper1_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
-    <material name="silver"/>
+    <material name="cyan"/>
   </visual>
   <collision>
     <origin xyz="-0.018 0.00725 -0.1138" rpy="0 0 0"/>
@@ -162,7 +163,7 @@
     <geometry>
       <mesh filename="package://urdfgripper_description/meshes/joint_gripper2_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
-    <material name="silver"/>
+    <material name="cyan"/>
   </visual>
   <collision>
     <origin xyz="0.018 0.00725 -0.105" rpy="0 0 0"/>
@@ -172,42 +173,42 @@
   </collision>
 </link>
 
-<joint name="Revolute 1" type="continuous">
+<joint name="Revolute_1" type="continuous">
   <origin xyz="-0.036 -0.01325 0.1238" rpy="0 -0.84 0"/>
-  <parent link="base_link"/>
+  <parent link="gripper_base_link"/>
   <child link="clamp2_1"/>
   <axis xyz="0.0 -1.0 0.0"/>
-  <mimic joint="Slider 5" multiplier="62.0" offset="0.0"/>
+  <mimic joint="Slider_5" multiplier="62.0" offset="0.0"/>
 </joint>
 
 
-<joint name="Revolute 2" type="continuous">
+<joint name="Revolute_2" type="continuous">
   <origin xyz="-0.018 -0.007 -0.023" rpy="0 -0.07 0"/>
   <parent link="joint_gripper3_1"/>
   <child link="joint_gripper2_2"/>
   <axis xyz="0.0 -1.0 -0.0"/>
-  <mimic joint="Slider 5" multiplier="10.0" offset="0.0"/>
+  <mimic joint="Slider_5" multiplier="10.0" offset="0.0"/>
 </joint>
 
-<joint name="Revolute 3" type="continuous">
+<joint name="Revolute_3" type="continuous">
   <origin xyz="0.036 -0.01325 0.1238" rpy="0 1.74 0"/>
-  <parent link="base_link"/>
+  <parent link="gripper_base_link"/>
   <child link="clamp1_1"/>
   <axis xyz="0.0 -1.0 0.0"/>
-  <mimic joint="Slider 5" multiplier="-62.0" offset="0.0"/>
+  <mimic joint="Slider_5" multiplier="-62.0" offset="0.0"/>
 </joint>
 
-<joint name="Revolute 4" type="continuous">
+<joint name="Revolute_4" type="continuous">
   <origin xyz="0.018 0.000 -0.023" rpy="0 0.58 0"/>
   <parent link="joint_gripper3_1"/>
   <child link="joint_gripper2_1"/>
   <axis xyz="0.0 -1.0 0.0"/>
-  <mimic joint="Slider 5" multiplier="-10.0" offset="0.0"/>
+  <mimic joint="Slider_5" multiplier="-10.0" offset="0.0"/>
 </joint>
 
-<joint name="Slider 5" type="prismatic">
+<joint name="Slider_5" type="prismatic">
   <origin xyz="0.0 0.0 0.1410" rpy="0 0 0"/>
-  <parent link="base_link"/>
+  <parent link="gripper_base_link"/>
   <child link="joint_gripper3_1"/>
   <axis xyz="0.0 0.0 1.0"/>
   <limit upper="0.0" lower="-0.011" effort="100" velocity="100"/>

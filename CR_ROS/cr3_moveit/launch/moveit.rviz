@@ -4,10 +4,15 @@ Panels:
     Name: Displays
     Property Tree Widget:
       Expanded:
-        - /MotionPlanning1
+        - /Global Options1
+        - /Status1
+        - /MotionPlanning1/Scene Geometry1
+        - /MotionPlanning1/Scene Robot1
+        - /MotionPlanning1/Planning Request1
         - /MotionPlanning1/Planned Path1
+        - /TF1/Frames1
       Splitter Ratio: 0.7425600290298462
-    Tree Height: 137
+    Tree Height: 130
   - Class: rviz/Help
     Name: Help
   - Class: rviz/Views
@@ -52,8 +57,6 @@ Visualization Manager:
       MoveIt_Planning_Time: 5
       MoveIt_Use_Cartesian_Path: false
       MoveIt_Use_Constraint_Aware_IK: true
-      MoveIt_Warehouse_Host: 127.0.0.1
-      MoveIt_Warehouse_Port: 33829
       MoveIt_Workspace:
         Center:
           X: 0
@@ -103,7 +106,37 @@ Visualization Manager:
             Show Axes: false
             Show Trail: false
             Value: true
+          back_lidar:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
           base_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          camera_case:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          camera_servo:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          clamp1_1:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          clamp2_1:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          cr3_base_link:
             Alpha: 1
             Show Axes: false
             Show Trail: false
@@ -112,15 +145,93 @@ Visualization Manager:
             Alpha: 1
             Show Axes: false
             Show Trail: false
+          eff:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          front_lidar:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          gripper_base_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          joint_gripper2_1:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          joint_gripper2_2:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          joint_gripper3_1:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          l_motor:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          lift:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          r_motor:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          virtual_lidar:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          zed2i_base_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          zed2i_camera_center:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          zed2i_imu_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          zed2i_left_camera_frame:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          zed2i_left_camera_optical_frame:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          zed2i_right_camera_frame:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          zed2i_right_camera_optical_frame:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
         Loop Animation: false
-        Robot Alpha: 0.5
+        Robot Alpha: 1
         Robot Color: 150; 50; 150
         Show Robot Collision: false
-        Show Robot Visual: true
+        Show Robot Visual: false
         Show Trail: false
         State Display Time: 0.05 s
         Trail Step Size: 1
         Trajectory Topic: move_group/display_planned_path
+        Use Sim Time: false
       Planning Metrics:
         Payload: 1
         Show Joint Torques: false
@@ -135,7 +246,7 @@ Visualization Manager:
         Interactive Marker Size: 0
         Joint Violation Color: 255; 0; 255
         Planning Group: arm
-        Query Goal State: true
+        Query Goal State: false
         Query Start State: false
         Show Workspace: false
         Start State Alpha: 1
@@ -187,7 +298,37 @@ Visualization Manager:
             Show Axes: false
             Show Trail: false
             Value: true
+          back_lidar:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
           base_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          camera_case:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          camera_servo:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          clamp1_1:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          clamp2_1:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          cr3_base_link:
             Alpha: 1
             Show Axes: false
             Show Trail: false
@@ -196,16 +337,282 @@ Visualization Manager:
             Alpha: 1
             Show Axes: false
             Show Trail: false
+          eff:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          front_lidar:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          gripper_base_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          joint_gripper2_1:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          joint_gripper2_2:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          joint_gripper3_1:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          l_motor:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          lift:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          r_motor:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          virtual_lidar:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          zed2i_base_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          zed2i_camera_center:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          zed2i_imu_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          zed2i_left_camera_frame:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          zed2i_left_camera_optical_frame:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          zed2i_right_camera_frame:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          zed2i_right_camera_optical_frame:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
         Robot Alpha: 0.5
         Show Robot Collision: false
         Show Robot Visual: true
       Value: true
       Velocity_Scaling_Factor: 1
+    - Class: rviz/TF
+      Enabled: true
+      Filter (blacklist): ""
+      Filter (whitelist): ""
+      Frame Timeout: 15
+      Frames:
+        All Enabled: false
+        Link1:
+          Value: false
+        Link2:
+          Value: false
+        Link3:
+          Value: false
+        Link4:
+          Value: false
+        Link5:
+          Value: false
+        Link6:
+          Value: false
+        back_lidar:
+          Value: false
+        base_link:
+          Value: false
+        camera_case:
+          Value: false
+        camera_servo:
+          Value: false
+        clamp1_1:
+          Value: false
+        clamp2_1:
+          Value: false
+        cr3_base_link:
+          Value: false
+        dummy_link:
+          Value: false
+        eff:
+          Value: true
+        front_lidar:
+          Value: false
+        gripper_base_link:
+          Value: false
+        joint_gripper2_1:
+          Value: false
+        joint_gripper2_2:
+          Value: false
+        joint_gripper3_1:
+          Value: false
+        l_motor:
+          Value: false
+        lift:
+          Value: false
+        mainobj:
+          Value: false
+        obj:
+          Value: false
+        obj_approach_pose:
+          Value: false
+        obj_approach_posea:
+          Value: false
+        obj_approach_poseaa:
+          Value: false
+        obj_approach_poseaaa:
+          Value: false
+        obj_grasp_pose:
+          Value: false
+        obj_grasp_posea:
+          Value: false
+        obj_grasp_poseaa:
+          Value: false
+        obj_grasp_poseaaa:
+          Value: false
+        obj_lift_pose:
+          Value: false
+        obj_lift_posea:
+          Value: false
+        obj_lift_poseaa:
+          Value: false
+        obj_lift_poseaaa:
+          Value: false
+        place_approach:
+          Value: false
+        place_place:
+          Value: false
+        place_safe_retreat:
+          Value: false
+        r_motor:
+          Value: false
+        virtual_lidar:
+          Value: false
+        zed2i_base_link:
+          Value: false
+        zed2i_camera_center:
+          Value: false
+        zed2i_imu_link:
+          Value: false
+        zed2i_left_camera_frame:
+          Value: false
+        zed2i_left_camera_optical_frame:
+          Value: false
+        zed2i_right_camera_frame:
+          Value: false
+        zed2i_right_camera_optical_frame:
+          Value: false
+      Marker Alpha: 1
+      Marker Scale: 1
+      Name: TF
+      Show Arrows: true
+      Show Axes: true
+      Show Names: true
+      Tree:
+        base_link:
+          back_lidar:
+            {}
+          camera_servo:
+            camera_case:
+              {}
+            zed2i_base_link:
+              zed2i_camera_center:
+                zed2i_left_camera_frame:
+                  zed2i_left_camera_optical_frame:
+                    {}
+                zed2i_right_camera_frame:
+                  zed2i_right_camera_optical_frame:
+                    {}
+          front_lidar:
+            {}
+          l_motor:
+            {}
+          lift:
+            dummy_link:
+              cr3_base_link:
+                Link1:
+                  Link2:
+                    Link3:
+                      Link4:
+                        Link5:
+                          Link6:
+                            gripper_base_link:
+                              clamp1_1:
+                                {}
+                              clamp2_1:
+                                {}
+                              eff:
+                                {}
+                              joint_gripper3_1:
+                                joint_gripper2_1:
+                                  {}
+                                joint_gripper2_2:
+                                  {}
+                obj:
+                  obj_approach_pose:
+                    {}
+                  obj_approach_posea:
+                    {}
+                  obj_approach_poseaa:
+                    {}
+                  obj_approach_poseaaa:
+                    {}
+                  obj_grasp_pose:
+                    {}
+                  obj_grasp_posea:
+                    {}
+                  obj_grasp_poseaa:
+                    {}
+                  obj_grasp_poseaaa:
+                    {}
+                  obj_lift_pose:
+                    {}
+                  obj_lift_posea:
+                    {}
+                  obj_lift_poseaa:
+                    {}
+                  obj_lift_poseaaa:
+                    {}
+          mainobj:
+            {}
+          place_place:
+            place_approach:
+              {}
+            place_safe_retreat:
+              {}
+          r_motor:
+            {}
+          virtual_lidar:
+            {}
+          zed2i_imu_link:
+            {}
+      Update Interval: 0
+      Value: true
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
     Default Light: true
-    Fixed Frame: dummy_link
+    Fixed Frame: base_link
     Frame Rate: 30
   Name: root
   Tools:
@@ -223,35 +630,35 @@ Visualization Manager:
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
+      Field of View: 0.7853981852531433
       Focal Point:
         X: 0.11356700211763382
         Y: 0.10592000186443329
-        Z: 2.2351800055275817e-7
+        Z: 2.2351800055275817e-07
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.5097969770431519
+      Pitch: 0.654796302318573
       Target Frame: dummy_link
-      Value: XYOrbit (rviz)
-      Yaw: 5.659949779510498
+      Yaw: 1.796761155128479
     Saved: ~
 Window Geometry:
   Displays:
-    collapsed: false
-  Height: 759
+    collapsed: true
+  Height: 752
   Help:
     collapsed: false
-  Hide Left Dock: false
+  Hide Left Dock: true
   Hide Right Dock: false
   MotionPlanning:
-    collapsed: false
+    collapsed: true
   MotionPlanning - Trajectory Slider:
     collapsed: false
-  QMainWindow State: 000000ff00000000fd0000000100000000000002a20000029dfc0200000007fb000000100044006900730070006c006100790073010000003d0000011a000000c900fffffffb0000000800480065006c00700000000342000000bb0000006e00fffffffb0000000a0056006900650077007300000003b0000000b0000000a400fffffffb0000000c00430061006d00650072006100000002ff000001610000000000000000fb0000001e004d006f00740069006f006e00200050006c0061006e006e0069006e00670100000374000001890000000000000000fb00000044004d006f00740069006f006e0050006c0061006e006e0069006e00670020002d0020005400720061006a006500630074006f0072007900200053006c00690064006500720000000000ffffffff0000001600000016fb0000001c004d006f00740069006f006e0050006c0061006e006e0069006e0067010000015d0000017d0000017d00ffffff0000047c0000029d00000001000000020000000100000002fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
+  QMainWindow State: 000000ff00000000fd0000000100000000000002a200000296fc0200000007fb000000100044006900730070006c006100790073000000003d00000113000000c900fffffffb0000000800480065006c00700000000342000000bb0000006e00fffffffb0000000a0056006900650077007300000003b0000000b0000000a400fffffffb0000000c00430061006d00650072006100000002ff000001610000000000000000fb0000001e004d006f00740069006f006e00200050006c0061006e006e0069006e00670100000374000001890000000000000000fb00000044004d006f00740069006f006e0050006c0061006e006e0069006e00670020002d0020005400720061006a006500630074006f0072007900200053006c00690064006500720000000000ffffffff0000001600000016fb0000001c004d006f00740069006f006e0050006c0061006e006e0069006e006700000001560000017d0000017d00ffffff0000038f0000029600000001000000020000000100000002fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
   Views:
     collapsed: false
-  Width: 1828
-  X: 92
-  Y: 114
+  Width: 911
+  X: 136
+  Y: 85

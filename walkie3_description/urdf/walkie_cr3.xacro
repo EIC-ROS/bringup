@@ -3,6 +3,7 @@
 
 <xacro:include filename="$(find walkie3_description)/urdf/walkie3.xacro"/>
 <xacro:include filename="$(find dobot_description)/urdf/cr3_robot.urdf"/>
+<xacro:include filename="$(find urdfgripper_description)/urdf/urdfgripper.xacro"/>
 
 <link name="virtual_lidar"/>
 
@@ -18,12 +19,26 @@
     <child  link="dummy_link" />
 </joint>
 
+<joint name="cr3_to_gripper" type="fixed">
+    <origin xyz="0.00 0.00 0.00" rpy="0 0 0.785"/>
+    <parent link="Link6" />
+    <child  link="gripper_base_link" />
+</joint>
 
-<!-- <joint name="zed2i_joint" type="fixed">
+<link name="eff"/>
+
+<joint name="eff_joint" type="fixed">
+  <origin xyz="0.0 0.0 0.18" rpy="0 -1.57 1.57"/>
+  <parent link="gripper_base_link"/>
+  <child link="eff"/>
+</joint>
+
+
+ <joint name="zed2i_joint" type="fixed">
     <origin xyz="0.031804 0.09 -0.015" rpy="0 0 0"/>
     <parent link="camera_servo" />
     <child  link="zed2i_base_link" />
-</joint> -->
+</joint> 
     
 <xacro:arg name="camera_name"   default="zed2i" />
 <xacro:arg name="camera_model"  default="zed2i" />
