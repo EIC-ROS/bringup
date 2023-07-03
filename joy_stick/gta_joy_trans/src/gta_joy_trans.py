@@ -7,8 +7,11 @@ from geometry_msgs.msg import Twist
 from std_srvs.srv import Trigger, TriggerRequest
 import threading
 
-zeros_publishing = True
+mac_keybind = True
+always_on = True
 
+zeros_publishing = True
+flag = 1
 def publish_zeros():
     cmd_vel_pub = rospy.Publisher('cmd_vel', Twist, queue_size=10)
     r = rospy.Rate(10)  # 10hz
@@ -21,17 +24,31 @@ def publish_zeros():
         r.sleep()
 
 def joy_trans(data):
-    global zeros_publishing
+    global zeros_publishing, flag, always_on
+    # if flag:
+    #     if mac_keybind:
+    #         data.axes[2] = 1.0
+    #         data.axes[5] = 1.0
+    #     else:
+    #         data.axes[4] = 1.0
+    #         data.axes[5] = 1.0
+    #     flag = True
+        
+        
 
     x = data.axes[0]
     y = data.axes[1]
 
-    lt_trigger = (data.axes[5]-1)/2
-    rt_trigger = -(data.axes[4]-1)/2
-
+    if mac_keybind:
+        lt_trigger = (data.axes[2]-1)/2
+        rt_trigger = -(data.axes[5]-1)/2
+    else:
+        lt_trigger = (data.axes[5]-1)/2
+        rt_trigger = -(data.axes[4]-1)/2
+        
     sum_trigger = (rt_trigger+lt_trigger)
 
-    if data.buttons[0]:
+    if data.buttons[0] or always_on:
         zeros_publishing = False
 
         angular_z = x * 0.5
@@ -46,7 +63,8 @@ def joy_trans(data):
         zeros_publishing = True
 
     # Check button[2] for motor control service
-    if data.buttons[11]:
+    #if data.buttons[11]: #ubuntu
+    if data.buttons[7]:
         try:
             motor_service = rospy.ServiceProxy('/MotorOn', Trigger)
             resp = motor_service(TriggerRequest())

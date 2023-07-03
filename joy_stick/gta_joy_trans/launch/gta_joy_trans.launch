@@ -1,6 +1,8 @@
 <launch>
 
-<node pkg="joy" type="joy_node" name="joy_inteface"/>
+<node pkg="joy" type="joy_node" name="joy_inteface">
+	<param name="dev" value="/dev/input/js1" />
+</node>
 
 <node pkg="gta_joy_trans" type="gta_joy_trans.py" name="gta_jot_trans"/>
 <!-- run "rostopic /cmd_vel" -->
