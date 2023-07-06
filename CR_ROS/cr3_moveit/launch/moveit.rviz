@@ -1,6 +1,6 @@
 Panels:
   - Class: rviz/Displays
-    Help Height: 84
+    Help Height: 0
     Name: Displays
     Property Tree Widget:
       Expanded:
@@ -10,9 +10,10 @@ Panels:
         - /MotionPlanning1/Scene Robot1
         - /MotionPlanning1/Planning Request1
         - /MotionPlanning1/Planned Path1
+        - /TF1
         - /TF1/Frames1
       Splitter Ratio: 0.7425600290298462
-    Tree Height: 130
+    Tree Height: 214
   - Class: rviz/Help
     Name: Help
   - Class: rviz/Views
@@ -445,7 +446,7 @@ Visualization Manager:
         camera_case:
           Value: false
         camera_servo:
-          Value: false
+          Value: true
         clamp1_1:
           Value: false
         clamp2_1:
@@ -469,40 +470,6 @@ Visualization Manager:
         l_motor:
           Value: false
         lift:
-          Value: false
-        mainobj:
-          Value: false
-        obj:
-          Value: false
-        obj_approach_pose:
-          Value: false
-        obj_approach_posea:
-          Value: false
-        obj_approach_poseaa:
-          Value: false
-        obj_approach_poseaaa:
-          Value: false
-        obj_grasp_pose:
-          Value: false
-        obj_grasp_posea:
-          Value: false
-        obj_grasp_poseaa:
-          Value: false
-        obj_grasp_poseaaa:
-          Value: false
-        obj_lift_pose:
-          Value: false
-        obj_lift_posea:
-          Value: false
-        obj_lift_poseaa:
-          Value: false
-        obj_lift_poseaaa:
-          Value: false
-        place_approach:
-          Value: false
-        place_place:
-          Value: false
-        place_safe_retreat:
           Value: false
         r_motor:
           Value: false
@@ -568,38 +535,6 @@ Visualization Manager:
                                   {}
                                 joint_gripper2_2:
                                   {}
-                obj:
-                  obj_approach_pose:
-                    {}
-                  obj_approach_posea:
-                    {}
-                  obj_approach_poseaa:
-                    {}
-                  obj_approach_poseaaa:
-                    {}
-                  obj_grasp_pose:
-                    {}
-                  obj_grasp_posea:
-                    {}
-                  obj_grasp_poseaa:
-                    {}
-                  obj_grasp_poseaaa:
-                    {}
-                  obj_lift_pose:
-                    {}
-                  obj_lift_posea:
-                    {}
-                  obj_lift_poseaa:
-                    {}
-                  obj_lift_poseaaa:
-                    {}
-          mainobj:
-            {}
-          place_place:
-            place_approach:
-              {}
-            place_safe_retreat:
-              {}
           r_motor:
             {}
           virtual_lidar:
@@ -624,7 +559,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/XYOrbit
-      Distance: 2.1581575870513916
+      Distance: 2.471466302871704
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
@@ -632,17 +567,17 @@ Visualization Manager:
         Value: false
       Field of View: 0.7853981852531433
       Focal Point:
-        X: 0.11356700211763382
-        Y: 0.10592000186443329
-        Z: 2.2351800055275817e-07
+        X: -0.3317302465438843
+        Y: -0.011990010738372803
+        Z: 5.811458549942472e-07
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.654796302318573
+      Pitch: 0.7247962355613708
       Target Frame: dummy_link
-      Yaw: 1.796761155128479
+      Yaw: 1.511765718460083
     Saved: ~
 Window Geometry:
   Displays:
@@ -661,4 +596,4 @@ Window Geometry:
     collapsed: false
   Width: 911
   X: 136
-  Y: 85
+  Y: 27

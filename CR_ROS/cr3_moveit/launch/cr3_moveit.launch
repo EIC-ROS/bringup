@@ -21,6 +21,11 @@
         <arg name="load_robot_description" value="true"/>
     </include>
 
+	
+    <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
+        <rosparam param="source_list">["/camera_state_publisher", "/griper_state_publisher", "/dobot/joint_states"]</rosparam>
+    </node>
+
     <!-- If needed, broadcast static tf for robot root -->
 
     <!-- Given the published joint states, publish tf for the robot links -->

@@ -5,22 +5,25 @@ from std_msgs.msg import Float32
 from lift_controller.srv import Demand_position, Demand_positionRequest, Demand_positionResponse
 
 class lift_socket:
-
     demand_position = 0
     max_position = 17.0
     min_position = 0.0
 
     def __init__(self, host:str, port:int) -> None:
+        print("run lift_socket class")
         self.host = host
         self.port = port
-
-        self.client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        self.client_socket.connect((self.host, self.port))
-        print("Connected to ESP32")
+        
+        # print("declare client socket")
+        # self.client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        # print("before connect to ESP32")
+        # self.client_socket.connect((self.host, self.port))
+        # print("Connected to ESP32")
 
         rospy.Service("/lift/set_position",Demand_position,self.request_position)
 
     def request_position(self,req:Demand_positionRequest):
+        print("run request_position function")
         res = Demand_positionResponse()
         self.demand_position = req.demand_position
 
@@ -36,14 +39,15 @@ class lift_socket:
             
     
     def run(self):
-
+        print("run run function")
         while not rospy.is_shutdown():
             try:
                 i = 1
 
                 while not rospy.is_shutdown():
-                    self.client_socket.send(struct.pack('!f', self.demand_position))
+                    # self.client_socket.send(struct.pack('!f', self.demand_position))
                     print("Sent:", self.demand_position, "Iter:",i) 
+                    
                     rospy.sleep(1)
                     
                     # use for reconnect i = 10000
@@ -52,11 +56,11 @@ class lift_socket:
 
                     i += 1
                     
-            except (socket.error, ConnectionResetError):
-                self.client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-                self.client_socket.connect((self.host, self.port))
-                print("Reconnecting")
-                continue
+            # except (socket.error, ConnectionResetError):
+            #     self.client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+            #     self.client_socket.connect((self.host, self.port))
+            #     print("Reconnecting")
+            #     continue
 
             except KeyboardInterrupt:
                 self.client_socket.close()
@@ -64,6 +68,7 @@ class lift_socket:
                 break
 
 if __name__ == "__main__":
-    rospy.init_node("test_lift")
-    lift_server = lift_socket("192.168.1.101",9090)
+    print("run lift_controller_node")
+    rospy.init_node("lift_server_node")
+    lift_server = lift_socket("10.10.10.3",9090)
     lift_server.run()

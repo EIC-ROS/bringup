@@ -1,5 +1,5 @@
 #include <SPI.h>
-#include <Ethernet.h>
+#include <Ethernet2.h>
 #include <ezButton.h>
 
 //define HSPI Channel and Motor Driver Pin
@@ -49,11 +49,11 @@ byte mac[] = { 0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED };
 // EthernetServer sendServer(8080);
 EthernetServer receiveServer(9090);
 byte Enet = 1;
-byte ip[] = {192,168,1,101};
+byte ip[] = {10,10,10,3};
 
 //--------limit switch--------//
-ezButton topSwitch(0);  // create ezButton object that attach to pin 0;
-ezButton bottomSwitch(4);  // create ezButton object that attach to pin 4;
+ezButton topSwitch(4);  // create ezButton object that attach to pin 0;
+ezButton bottomSwitch(0);  // create ezButton object that attach to pin 4;
 
 
 void printNumber(int number, int period) {  // this function can be used to print integer instead of Serial.print()
@@ -119,7 +119,7 @@ void setDirection(bool dir) //this function set direaction for stepper motor
   // The STEP pin must not change for at least 200 nanoseconds before and after
   // changing the DIR pin.
   delayMicroseconds(10);
-  digitalWrite(DirPin, dir);
+  digitalWrite(DirPin, !dir);
   delayMicroseconds(10);
 }
 

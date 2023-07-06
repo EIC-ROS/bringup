@@ -210,7 +210,7 @@
 </joint>
 
 <joint name="camera_servo_joint" type="continuous">
-  <origin xyz="-0.1215 -0.09 1.389" rpy="0 0 0"/>
+  <origin xyz="-0.1215 -0.09 1.389" rpy="0 1.57 0"/>
   <parent link="base_link"/>
   <child link="camera_servo"/>
   <axis xyz="0.0 1.0 0.0"/>
