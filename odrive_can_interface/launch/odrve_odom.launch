@@ -1,8 +1,12 @@
 <?xml version="1.0"?>
 <launch>
+
+	
+    <!-- By default, we are not in debug mode -->
+    <arg name="debug" default="false"/>
+
     <arg default="$(find odrive_can_interface)/rviz.rviz" name="rvizconfig"/>
-    <arg name="model" default="$(find walkie3_description)/urdf/walkie_cr3.xacro"/>
-    <param name="robot_description" command="$(find xacro)/xacro $(arg model)"/>
+    <param  name="robot_description" command="$(find xacro)/xacro --inorder $(find walkie3_description)/urdf/walkie_cr3.xacro"/>
     
     <arg name="svo_file"             default="" /> <!-- <arg name="svo_file" default="path/to/svo/file.svo"> -->
     <arg name="stream"               default="" /> <!-- <arg name="stream" default="<ip_address>:<port>"> -->
@@ -22,7 +26,7 @@
     <arg name="cam_pitch"             default="0.0" /> <!-- Orientation respect to base frame (i.e. "base_link) -->
     <arg name="cam_yaw"               default="0.0" /> <!-- Orientation respect to base frame (i.e. "base_link) -->
   
-    <group ns="$(arg camera_name)">
+    <!-- <group ns="$(arg camera_name)">
         <include file="$(find zed_wrapper)/launch/include/zed_camera.launch.xml">
           <arg name="camera_name"         value="$(arg camera_name)" />
           <arg name="svo_file"            value="$(arg svo_file)" />
@@ -38,14 +42,15 @@
           <arg name="cam_pitch"           value="$(arg cam_pitch)" />
           <arg name="cam_yaw"             value="$(arg cam_yaw)" />
         </include>
-    </group>
+    </group> -->
 
 <!-- <include file="$(find gta_joy_trans)/launch/gta_joy_trans.launch"/> -->
     <include file="$(find teleop_twist_joy)/launch/teleop.launch"/>
 <!-- ODRIVE INTERFACE NODE -->
-    <node pkg="odrive_can_interface" type="odrive_can_interface.py" name="odrive_can_interface"/>
+     <node pkg="odrive_can_interface" type="odrive_can_interface.py" name="odrive_can_interface"/>
 
     <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher"/>
+    <rosparam param="source_list">["/camera_state_publisher", "/griper_state_publisher", "/dobot/joint_states"]</rosparam>
     <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"/>
 
 <!-- EKF FILTER -->
@@ -76,8 +81,8 @@
         <param name="scanfreq" type="string" value="30" />
         <param name="filter" type="string" value="3" />
         <param name="laser_enable" type="string" value="true" />
-        <param name="scan_range_start" type="string" value="75" />
-        <param name="scan_range_stop" type="string" value="285" />
+        <param name="scan_range_start" type="string" value="90" />
+        <param name="scan_range_stop" type="string" value="270" />
     </node>
 
     <node name="urg_node" pkg="urg_node" type="urg_node">
@@ -102,5 +107,17 @@
     </node> 
 
     <node args="-d $(arg rvizconfig)" name="rviz" pkg="rviz" required="true" type="rviz"/>
-
+    <node name="camegrip" pkg="dy_custom" type="camegrip"/>
+    
+	    <include file="$(find cr3_moveit)/launch/move_group.launch">
+        <arg name="allow_trajectory_execution" value="true"/>
+        <arg name="fake_execution" value="false"/>
+        <arg name="info" value="true"/>
+        <arg name="debug" value="$(arg debug)"/>
+    </include>
+    
+        <include file="$(find cr3_moveit)/launch/planning_context.launch">
+        <arg name="load_robot_description" value="true"/>
+    </include>
+    
 </launch>

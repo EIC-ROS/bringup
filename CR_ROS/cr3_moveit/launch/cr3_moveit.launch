@@ -21,7 +21,10 @@
         <arg name="load_robot_description" value="true"/>
     </include>
 
+<<<<<<< Updated upstream
 	
+=======
+>>>>>>> Stashed changes
     <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
         <rosparam param="source_list">["/camera_state_publisher", "/griper_state_publisher", "/dobot/joint_states"]</rosparam>
     </node>

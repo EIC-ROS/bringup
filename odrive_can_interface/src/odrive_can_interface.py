@@ -15,8 +15,8 @@ import rospkg
 
 
 #bus = can.ThreadSafeBus(interface= "seeedstudio", channel="/dev/ttyUSB0", bitrate= 500000)
-#file = rospkg.RosPack().get_path('odrive_can_interface')+'/src/odrive-cansimple.dbc'
-file = "/home/game/Desktop/Parallels Shared Folders/Home/walkie3_ws/src/bringup/odrive_can_interface/src/odrive-cansimple.dbc"
+file = rospkg.RosPack().get_path('odrive_can_interface')+'/src/odrive-cansimple.dbc'
+#file = "/home/game/Desktop/Parallels Shared Folders/Home/walkie3_ws/src/bringup/odrive_can_interface/src/odrive-cansimple.dbc"
 db = cantools.database.load_file(file)
 axisID_left = 0x1
 axisID_right = 0x0

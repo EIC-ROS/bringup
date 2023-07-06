@@ -11,15 +11,15 @@
         <param name="scanfreq" type="string" value="30" />
         <param name="filter" type="string" value="3" />
         <param name="laser_enable" type="string" value="true" />
-        <param name="scan_range_start" type="string" value="75" />
-        <param name="scan_range_stop" type="string" value="285" />
+        <param name="scan_range_start" type="string" value="95" />
+        <param name="scan_range_stop" type="string" value="265" />
     </node>
 
     <node name="urg_node" pkg="urg_node" type="urg_node">
         <param name="ip_address" value="10.10.10.21"/>
         <param name="frame_id" value="front_lidar"/>
-        <param name="angle_max" value="1.833"/>
-        <param name="angle_min" value="-1.833"/>
+        <param name="angle_max" value="1.745"/>
+        <param name="angle_min" value="-1.745"/>
         <remap from="/scan" to="/front/scan"/>
     </node>
 
